@@ -17,7 +17,9 @@
       <p><?php echo $category['description'];?></p>
       <hr />
       <div class="actions">
-      <a class="linkaction" href="categoryAction.php?action=delete&id=<?php echo $category['id'];?>">Delete Category</a>
+	  <?php session_start();
+	  $_SESSION["id"]=$category['id']; ?>
+      <a class="linkaction" href="deletecat.php<?php echo $category['id'];?>">Delete Category</a>
         <a class="linkaction" href="categoryAction.php?action=update&id=<?php echo $category['id'];?>">Update Category</a>
 		
         <a class="linkaction" href="categoryAction.php?action=add&id=<?php echo $category['id'];?>">Add Category</a>
