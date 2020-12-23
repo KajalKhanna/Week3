@@ -2,7 +2,8 @@
   require_once('lib/sessionOperations.php');
   if(is_user_logged_in()){
     // send to dashboard page
-	header('location:dashboard.php');
+    header('location:dashboard.php');
+
   }
   $err_msg = '';
   if(isset($_POST['sub']) and $_POST['sub']){
@@ -14,9 +15,7 @@
       $response = authenticate($cleanData['user'],$cleanData['pwd']);
       if(!$response){
         $err_msg = 'Invalid Credentials';
-		 header('location:dashboard.php');
       }else{
-		    header('location:dashboard.php');
         make_user_session($response);
         // and send to dashboard
         header('location:dashboard.php');
