@@ -7,7 +7,7 @@
   </div>
   <div class="column middle">
     <div class="actions">
-      <a class="linkaction" href="categoryAction.php">Add Category</a>
+      <a class="linkaction" href="add.php">Add Category</a>
     <div style="clear:both;"></div>  
     </div>
     <?php  $data = fetchRecordAll('category'); ?>
@@ -17,12 +17,12 @@
       <p><?php echo $category['description'];?></p>
       <hr />
       <div class="actions">
-	  <?php session_start();
-	  $_SESSION["id"]=$category['id']; ?>
-      <a class="linkaction" href="deletecat.php<?php echo $category['id'];?>">Delete Category</a>
+        <?php?>
+        <?php @session_start();
+          $_SESSION['id']=$category['id'];
+        ?>
+        <a class="linkaction" href="deletecat.php">Delete Category</a>
         <a class="linkaction" href="categoryAction.php?action=update&id=<?php echo $category['id'];?>">Update Category</a>
-		
-        <a class="linkaction" href="categoryAction.php?action=add&id=<?php echo $category['id'];?>">Add Category</a>
         <div style="clear:both;"></div>  
       </div>
 
@@ -35,4 +35,3 @@
   <div class="column side">Column</div>
 </div>
 <?php require_once('includes/footer.php');?>
-
