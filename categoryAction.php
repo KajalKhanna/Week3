@@ -13,7 +13,6 @@
         // action for deletion or update
         $cleanData = clean($_POST);
         updateRecord('category',$cleanData['id'],$cleanData);
-		
     }
     if(isset($_GET['action']) and $_GET['action']=='update'){
         // clean data
@@ -28,7 +27,6 @@
         }
         if($cleanData['action']=='delete'){
             $response = deleteRecord('category',$cleanData['id']);
-			deleteRecord('category',$cleanData['id'],$cleanData);
         }
     ?>
     <div class="login">
@@ -71,32 +69,6 @@
   </form>
   </fieldset>
 </div>
-
- <div class="login">
-  <fieldset>
-  <legend>Add Category details</legend>
-  <?php if(isset($err_msg) and $err_msg) echo '<div class="error">'.$err_msg.'</div>';?>
-  <form action="categoryAction.php" method="post" class="login">
-  <input type="hidden" name="id" value="<?php echo $category['id'];?>" />
-  <table width="100%">
-    <tr>
-      <td> Name : </td>
-      <td><input type="text" name="name" value="<?php echo $category['name'];?>" /></td>
-    </tr>
-    <tr>
-      <td> Desc : </td>
-      <td><input type="text" name="description" value="<?php echo $category['description'];?>" /></td>
-    </tr>
- 
-    <tr>
-      <td> &nbsp;</td>
-      <td><input type="submit" name="sub" value=" Add "/></td>
-    </tr>
-  </table>   
-  </form>
-  </fieldset>
-</div>
-
     <?php
         }
    ?>
